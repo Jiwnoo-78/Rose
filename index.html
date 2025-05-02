@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The World of Roses</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffdfd;
+      color: #333;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* Header and Navigation */
+    header {
+      background: linear-gradient(to right, #b8004b, #ff3366);
+      padding: 15px 30px;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fdd;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    .extra-links {
+      display: none;
+      flex-direction: column;
+      background: #b8004b;
+      padding: 10px;
+      position: absolute;
+      top: 65px;
+      right: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .extra-links a {
+      padding: 8px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .extra-links.show {
+      display: flex;
+    }
+
+    /* Main content styling */
+    .main {
+      padding: 120px 30px 50px 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 50px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      animation: fadeIn 1s ease;
+    }
+
+    section h2 {
+      color: #b8004b;
+      margin-bottom: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll to top button */
+    #topBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #b8004b;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 22px;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #topBtn:hover {
+      background: #ff3366;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #fde4ec;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 2px solid #f8bbd0;
+    }
+
+    .footer h2 {
+      margin-bottom: 20px;
+      color: #b8004b;
+      font-size: 1.4em;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: #b8004b;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .footer-links a:hover {
+      background: #fce4ec;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="brand">Roses World</div>
+      <div class="nav-links">
+        <a href="#intro">Intro</a>
+        <a href="#history">History</a>
+        <a href="#symbolism">Symbolism</a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+    <div class="extra-links" id="extraMenu">
+      <a href="#species">Types</a>
+      <a href="#cultivation">Cultivation</a>
+      <a href="#care">Care</a>
+      <a href="#pests">Pests</a>
+      <a href="#science">Science</a>
+      <a href="#literature">Literature</a>
+      <a href="#art">Art</a>
+      <a href="#festivals">Festivals</a>
+      <a href="#economy">Economy</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <section id="intro">
+      <h2>Introduction</h2>
+      
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Lieu_historique_national_du_Canada_des_Jardins-Butchart_2012-09-15_18-27-50.jpg" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+        
+      <p>The rose is one of the most ancient and celebrated flowers in human history. Revered for its beauty and fragrance, the rose has become a symbol of love, honor, passion, and more across different cultures and centuries. This site aims to offer an in-depth exploration into the world of roses — their science, history, and soul.</p>
+    </section>
+    
+     <section id="history">
+      <h2>History of Roses</h2>
+      
+      <img src="https://www.worldhistory.org/uploads/images/17748.jpg?v=1732991946-1692102178" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+      
+      <p>Archaeological findings suggest roses have existed for more than 35 million years. They were cultivated in China 5,000 years ago, cherished by Roman emperors, and used extensively in medieval European gardens. Each era has left its imprint on rose breeding and symbolism.</p>
+    </section>
+
+    <section id="symbolism">
+      <h2>Symbolism & Meaning</h2>
+      
+            <img src="https://4kwallpapers.com/images/walls/thumbs_3t/464.jpeg" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+            
+      <p>Throughout history, roses have been deeply symbolic: red for love, white for purity, yellow for friendship, and black for mystery or farewell. In religious iconography, the rose represents divine love and heavenly beauty. Its layered petals often reflect life's complexity and depth.</p>
+    </section>
+
+    <section id="species">
+      <h2>Types of Roses</h2>
+      
+      
+    <img src="https://static.wixstatic.com/media/7e30a2_b44b9de23f3246f1bef9ecb6aad1d94e~mv2.jpg/v1/fill/w_568,h_268,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7e30a2_b44b9de23f3246f1bef9ecb6aad1d94e~mv2.jpg" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+    
+      <p>There are over 300 species and more than 30,000 cultivars of roses. These include wild roses, hybrid teas, floribundas, climbers, and miniature varieties. Each type is bred for specific traits like color, fragrance, bloom size, and disease resistance.</p>
+    </section>
+
+    <section id="cultivation">
+      <h2>Cultivation Techniques</h2>
+      
+       <img src="https://media.gettyimages.com/id/1162163809/video/aerial-view-of-rose-fields-the-abundance-of-the-decorative-rose-is-in-its-peak.jpg?s=640x640&k=20&c=JHi7bFp0UHCFzwUR_kfq0zPOhSl7vaeaoBZKZrgqxVw=" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+      
+      <p>Roses thrive in well-drained soil with ample sunlight. Cultivation includes preparing the soil, planting with proper spacing, and ensuring regular watering and pruning. Advanced techniques include grafting, propagation by cuttings, and greenhouse growing for year-round blooms.</p>
+    </section>
+
+    <section id="care">
+      <h2>Care & Maintenance</h2>
+      
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwbsskK2AV_Le09xkHspNCTlz3gyxyJHU7mM_L4QhngqPPlM49Sow1o5M&s=10" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+      
+      <p>Roses require regular care such as pruning deadheads, removing suckers, applying mulch, and fertilizing in cycles. Monitoring soil pH and ensuring good air circulation help prevent common diseases like black spot and powdery mildew.</p>
+    </section>
+
+    <section id="pests">
+      <h2>Pests & Diseases</h2>
+      
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvzOcpYXCbOFmjSE2bQ0AZsc2vZ1Z27y5yAAojT6ynOSAd88utr2dzpk&s=10" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+      
+      <p>Common rose pests include aphids, thrips, and Japanese beetles. Diseases such as black spot, rust, and mildew can damage leaves and reduce bloom quality. Organic and chemical controls, as well as resistant varieties, are effective solutions.</p>
+    </section>
+
+    <section id="science">
+      <h2>Scientific Insights</h2>
+      
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTebe7ydF62SFnMqC8gb2btI1CawAbMLGMR9TnIdIkrmKf4d6C0eXc-MUAO&s=10" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+       
+      <p>Roses belong to the Rosaceae family. They have been a focus of genetic research to enhance traits like scent, longevity, and color. Blue roses, once thought impossible, are now created using genetic modification, representing the pinnacle of floral science.</p>
+    </section>
+
+    <section id="literature">
+      <h2>Roses in Literature</h2>
+      
+      <img src="https://images.pexels.com/photos/261777/pexels-photo-261777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+      
+      <p>Roses have featured in poetry and prose since antiquity. From Shakespeare’s metaphors in *Romeo and Juliet* to William Blake’s *The Sick Rose*, the flower has symbolized everything from forbidden love to divine truth. It is a literary archetype of emotion and depth.</p>
+    </section>
+
+    <section id="art">
+      <h2>Roses in Art</h2>
+      
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP-im0oPhunkZ5Dforrq8qOeL030otTwt7J9ON9MeH1FoLs0E1Nb5iyzMf&s=10" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+      
+      <p>Roses are prominent in classical paintings, stained glass, tapestries, and modern art. Artists like Renoir, Van Gogh, and Georgia O’Keeffe captured their form and essence. In sculpture and design, roses are symbolic of balance between beauty and pain.</p>
+    </section>
+
+    <section id="festivals">
+      <h2>Rose Festivals</h2>
+      
+            <img src="https://i.ytimg.com/vi/LeD54GzkCNU/hq720.jpg?rs=AOn4CLBUgNdr3dxaT8IPhHS7wgRj3_pZtQ&sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+            
+      <p>From the Rose Parade in Pasadena to the Bulgarian Rose Festival in Kazanlak, roses are celebrated with grandeur worldwide. These festivals highlight local culture, horticulture, and the economic importance of roses in floriculture and perfume industries.</p>
+    </section>
+
+    <section id="economy">
+      <h2>Roses in the Economy</h2>
+      
+            <img src="https://www.shutterstock.com/shutterstock/videos/1091513863/thumb/6.jpg?ip=x480" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+            
+      <p>The global rose industry is a billion-dollar sector. Kenya, Colombia, and the Netherlands lead in exports. Valentine's Day alone accounts for over 200 million roses sold. Roses are a core product in perfumes, skincare, decor, and hospitality industries.</p>
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      
+            <img src="https://wallpapers.com/images/hd/4k-clustered-pink-rose-cfhkg1s5f2v9e8a8.jpg" alt="Beautiful rose close-up" style="width:100%; max-height:300px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
+            
+      <p>The rose is more than a flower; it is an emblem of civilization, creativity, and love. Across centuries, it has bloomed in gardens, verses, and hearts. To understand roses is to understand beauty through the lens of nature, culture, and science.</p>
+    </section>
+    
+     <footer>
+  <p>&copy; 2025 RoseTreeInfo.com | Created by Nature Enthusiasts</p>
+</footer>
+
+ </div>
+
+  <!-- Scroll To Top Button -->
+  <button id="topBtn" onclick="scrollToTop()">↑</button>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+    const extraMenu = document.getElementById("extraMenu");
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    function toggleMenu() {
+      extraMenu.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
