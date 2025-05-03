@@ -341,7 +341,12 @@
     }
 
     function toggleMenu() {
-      extraMenu.classList.toggle("show");
+    const menu = document.getElementById("extraMenu");
+  menu.classList.toggle("show");
+const links = menu.querySelectorAll('a');
+  links.forEach(link => link.addEventListener('click', () => {
+    menu.classList.remove('show');
+  }));
     }
   </script>
 
