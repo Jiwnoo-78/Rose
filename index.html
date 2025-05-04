@@ -177,9 +177,27 @@
         display: block;
       }
     }
+    body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .your-element {
+  background-color: #1e1e1e;
+  color: #ccc;
+}
+
+/* Example of toggling buttons or cards */
+body.dark-mode button {
+  background-color: #333;
+  color: #f4c430;
+    }
+    
   </style>
 </head>
 <body>
+
+  <button id="toggleDarkMode">🌙 Dark Mode</button>
 
   <!-- Top Navigation -->
   <header>
@@ -348,6 +366,11 @@ const links = menu.querySelectorAll('a');
     menu.classList.remove('show');
   }));
     }
+  const toggleDarkMode = document.getElementById('toggleDarkMode');
+  
+  toggleDarkMode.onclick = () => {
+    document.body.classList.toggle('dark-mode');
+  };
   </script>
 
 </body>
